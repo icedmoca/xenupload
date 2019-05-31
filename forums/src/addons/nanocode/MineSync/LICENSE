@@ -1,0 +1,7 @@
+MineSync is proprietary software developed by nanocode. All rights reserved.
+
+Your use of MineSync is subject to the license agreement (https://nanocode.io/terms). A valid license is required to use MineSync. All code in this package is proprietary code of nanocode (Apantic Limited) unless otherwise stated in the file, or located within the /vendor directory.
+
+This package includes the following 3rd party assets, the associated license is also provided:
+  * xPaw's PHP-Minecraft-Query: MIT license
+  * clipboard.js: MIT license

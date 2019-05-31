@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+  <template type="public" title="ncms_account_minesync" version_id="3000070" version_string="3.0.0"><![CDATA[<xf:title>{{ phrase('ncms_minesync_settings') }}</xf:title>
+
+<xf:css src="ncms_global.less" />
+<xf:wrap template="account_wrapper" />
+
+<xf:if is="!$xf.visitor.canEditProfile()">
+	<div class="blockMessage blockMessage--important">{{ phrase('your_full_account_details_not_currently_editable') }}</div>
+</xf:if>
+
+<xf:if is="!$xf.visitor.ncms_uuid">
+	<div class="blockMessage blockMessage--error">{{ phrase('ncms_account_is_not_currently_linked') }}</div>
+<xf:else />
+	<xf:form action="{{ link('account/minesync') }}" ajax="true" class="block" data-force-flash-message="true">
+	<div class="block-container">
+		<div class="block-body ncmsAccountManage">
+			<xf:formrow label="{{ phrase('ncms_username') }}">
+				{$xf.visitor.ncms_username}
+			</xf:formrow>
+			
+			<xf:formrow label="{{ phrase('ncms_uuid') }}">
+				{$xf.visitor.ncms_uuid}
+			</xf:formrow>
+			
+			<xf:formrow rowtype="button"
+				label="{{ phrase('ncms_unlink') }}">
+				<xf:button href="{{ link('account/minesync-unlink') }}" class="button--link" overlay="true">{{ phrase('ncms_unlink_account') }}</xf:button>
+			</xf:formrow>
+			
+			<hr class="formRowSep" />
+			
+			<xf:if is="{$xf.visitor.ncms_groups}">
+				<xf:formrow label="{{ phrase('ncms_current_display_group') }}">
+					{$groups.{$xf.visitor.ncms_group}.name}
+				</xf:formrow>
+				
+				<xf:if is="{$xf.options.ncmsAllowDisplayGroupChanging}">
+					<xf:radiorow label="{{ phrase('ncms_set_new_display_group') }}" name="group_id">
+						<xf:foreach loop="$groups" value="$group">
+							<xf:option value="{$group.id}" checked="{{ $xf.visitor.ncms_group == $group.id }}">
+								<div class="ncmsInlineBlockGroup">
+									<span class="ncms-group-badge group-badge-{$group.id}" style="background-color: {$group.css_background_colour} !important; color: {$group.css_font_colour} !important;">{$group.name}</span>
+								</div>
+							</xf:option>
+						</xf:foreach>
+					</xf:radiorow>
+				</xf:if>
+			</xf:if>
+		</div>
+		<xf:if is="$xf.visitor.canEditProfile()">
+			<xf:submitrow icon="save" sticky="true" />
+		</xf:if>
+	</div>
+	</xf:form>
+</xf:if>]]></template>
+  <template type="public" title="ncms_account_minesync_unlink" version_id="3000070" version_string="3.0.0"><![CDATA[<xf:title>{{ phrase('ncms_confirm_unlink') }}</xf:title>
+
+<xf:form action="{{ link('account/minesync-unlink') }}" class="block" ajax="true">
+
+	<div class="block-container">
+		<div class="block-body">
+			<xf:inforow rowtype="confirm">
+				{{ phrase('ncms_are_you_sure_you_wish_to_unlink_account') }}
+			</xf:inforow>
+		</div>
+
+		<xf:submitrow submit="{{ phrase('confirm') }}" rowtype="simple" />
+	</div>
+
+</xf:form>]]></template>
+  <template type="admin" title="ncms_admin_macros" version_id="3000070" version_string="3.0.0"><![CDATA[<xf:macro name="edit_user"
+	arg-user="!"
+	arg-groups="!">
+	
+	<h3 class="block-formSectionHeader">
+		<span class="collapseTrigger collapseTrigger--block" data-xf-click="toggle" data-target="< :up:next">
+			<span class="block-formSectionHeader-aligner">{{ phrase('ncms_minesync') }}</span>
+		</span>
+	</h3>
+	<div class="block-body block-body--collapsible">
+		<xf:textboxrow name="user[ncms_uuid]" value="{$user.ncms_uuid}"
+						maxlength="{{ max_length($user, 'ncms_uuid') }}"
+						label="{{ phrase('ncms_uuid') }}" />
+		
+		<xf:textboxrow name="user[ncms_username]" value="{$user.ncms_username}"
+						maxlength="{{ max_length($user, 'ncms_username') }}"
+						label="{{ phrase('ncms_username') }}" />
+		
+		<xf:selectrow name="user[ncms_group]" value="{$user.ncms_group}"
+					  label="{{ phrase('ncms_display_group') }}">
+			<xf:options source="$groups" />
+		</xf:selectrow>
+		
+		<xf:checkboxrow name="user[ncms_groups]" value="{$user.ncms_groups}"
+						listclass="listColumns"
+						label="{{ phrase('ncms_available_groups') }}">
+			<xf:options source="$groups" />
+		</xf:checkboxrow>
+	</div>
+</xf:macro>]]></template>
+  <template type="public" title="ncms_global.less" version_id="3020070" version_string="3.2.0"><![CDATA[/*
+ * MineSync is a comprehensive sync for XenForo and Minecraft.
+ * Copyright nanocode 2015-present. All rights reserved.
+ *
+ * THIS IS PROPRIETARY SOFTWARE, LICENSED UNDER THE NANOCODE PRODUCT AGREEMENT. ALL USE IS LIMITED TO VALID LICENSES ONLY, AND TO THE TERMS OF THE LICENSE AGREEMENT:
+ * https://nanocode.io/terms
+ */
+
+/* GROUP BADGES START */
+
+/* No longer necessary as of MineSync 2.0.0 Beta 1, but the code remains here in case you want to override styles using CSS */
+
+.ncms-group-badge {
+	font-size: 11px;
+	background-color: rgb(206, 206, 206);
+	padding: 1px 2px;
+	display: inline-block;
+	text-transform: uppercase;
+}
+
+/*.ncms-group-badge-example {
+    background-color: #e74c3c !important;
+    color: #ecf0f1 !important;
+}*/
+
+/* GROUP BADGES END */
+
+/* GENERIC STYLING */
+.mcShowcaseBlock {
+    background-color: @xf-pageBg;
+	padding: 4px 2px;
+	height: 42px;
+	margin-top: 10px;
+
+	.playerAvatar {
+		padding: 3px 0px 0px 2px;
+		float: left;
+		width: 28px;
+	}
+
+	.playerData {
+		font-size: 11px;
+		padding: 8px 2px 8px 6px;
+		float: left;
+		text-align: left;
+		word-spacing: 0;
+		width: 75%;
+
+		&.withGroup {
+			padding: 1px 2px 1px 6px;
+		}
+
+		.playerUsername {
+			color: #2c3e50;
+			overflow-y: hidden;
+			height: 13px;
+			margin-bottom: 2px;
+		}
+	}
+}
+
+/* CSS: PROFILE PAGE */
+
+.mcPlayerProfile {
+	width: 120px;
+	float: right;
+	position: relative;
+	bottom: 40px;
+}
+
+@media (max-width: @xf-responsiveNarrow)
+{
+	.mcPlayerProfile {
+		position: inherit;
+		bottom: 0;
+		margin: 0 auto;
+	}
+}
+
+/* Register block */
+
+.ncmsRegisterBlock {
+	height: 60px;
+	padding: 20px;
+	background-color: lightgrey !important;
+
+	.regmsg {
+		position: relative;
+		bottom: 15px;
+
+		img {
+			position: relative;
+			top: 10px;
+			margin-right: 5px;
+		}
+	}
+}
+
+/* Account manage */
+.ncmsAccountManage {
+	.ncmsInlineBlockGroup {
+		display: inline-block;
+	}
+}
+
+/* Server status widget */
+.block.ncms-mc-status .block-minorHeader {
+	display: block;
+
+}
+
+.ncms-mc-status {
+	.status-indicator {
+        float: right;
+		position: relative;
+        font-size: 30px;
+        padding-top: 9px;
+        line-height: 0;
+	}
+
+    .status-indicator.online {
+      color: limegreen;
+    }
+    .status-indicator.offline {
+      color: red;
+    }
+}]]></template>
+  <template type="admin" title="ncms_group_delete" version_id="3000170" version_string="3.0.1"><![CDATA[<xf:title>{{ phrase('confirm_action') }}</xf:title>
+
+<xf:form action="{{ link('minesync/groups/delete', $group) }}" class="block" ajax="true">
+
+	<div class="block-container">
+		<div class="block-body">
+			<xf:inforow rowtype="confirm">
+				{{ phrase('ncms_confirm_that_you_want_to_remove_following_group') }}
+				<strong><a href="{{ link('groups/edit', $group) }}">{$group.name}</a></strong>
+			</xf:inforow>
+		</div>
+
+		<xf:submitrow icon="delete" />
+	</div>
+
+</xf:form>]]></template>
+  <template type="admin" title="ncms_group_edit" version_id="3000070" version_string="3.0.0"><![CDATA[<xf:if is="$group.isInsert()">
+	<xf:title>{{ phrase('ncms_add_group') }}</xf:title>
+<xf:else />
+	<xf:title>{{ phrase('ncms_edit_group:') }} {$group.name}</xf:title>
+</xf:if>
+
+<xf:pageaction if="$group.isUpdate()">
+	<xf:button href="{{ link('minesync/groups/delete', $group) }}" icon="delete" overlay="true" />
+</xf:pageaction>
+
+<xf:form action="{{ link('minesync/groups/save', $group) }}" ajax="true" class="block">
+	<div class="block-container">
+		<div class="block-body">
+			<xf:textboxrow name="name" value="{$group.name}" maxlength="{{ max_length($group, 'name') }}"
+				label="{{ phrase('ncms_group_name') }}" />
+			
+			<xf:selectrow name="xf_group_id" value="{$group.xf_group_id}"
+				label="{{ phrase('ncms_xf_group_id') }}"
+				explain="{{ phrase('ncms_xf_group_explain') }}">
+				<xf:options source="$userGroups" />
+			</xf:selectrow>
+			
+			<xf:textboxrow name="mc_group_id" value="{$group.mc_group_id}" maxlength="{{ max_length($group, 'mc_group_id') }}"
+				label="{{ phrase('ncms_mc_group_id') }}"
+				explain="{{ phrase('ncms_mc_group_id_explain') }}" />
+
+			<xf:numberboxrow name="priority" value="{$group.priority}" min="0"
+				label="{{ phrase('ncms_group_priority') }}"
+				explain="{{ phrase('ncms_ordering_and_ranking_priority') }}" />
+			
+			<xf:macro template="public:color_picker_macros" name="color_picker"
+				arg-name="css_background_colour"
+				arg-value="{$group.css_background_colour}"
+				arg-allowPalette="false"
+				arg-label="{{ phrase('ncms_css_background_colour') }}" />
+			
+			<xf:macro template="public:color_picker_macros" name="color_picker"
+				arg-name="css_font_colour"
+				arg-value="{$group.css_font_colour}"
+				arg-allowPalette="false"
+				arg-label="{{ phrase('ncms_css_font_colour') }}" />
+		</div>
+
+		<xf:submitrow icon="save" sticky="true" />
+	</div>
+
+</xf:form>]]></template>
+  <template type="admin" title="ncms_group_list" version_id="3000170" version_string="3.0.1"><![CDATA[<xf:title>{{ phrase('ncms_groups') }}</xf:title>
+
+<xf:pageaction>
+	<xf:button href="{{ link('minesync/groups/add') }}" icon="add">
+		{{ phrase('ncms_add_group') }}
+	</xf:button>
+</xf:pageaction>
+
+<div class="block-outer">
+	<xf:macro template="filter_macros" name="quick_filter" arg-key="minesync-groups" arg-class="block-outer-opposite" />
+</div>
+
+<div class="block-container">
+	<div class="block-body">
+		<xf:datalist>
+			<xf:foreach loop="$groups" value="$group">
+				<xf:datarow>
+					<xf:main hash="{$group.id}"
+						href="{{ link('minesync/groups/edit', $group) }}" label="{$group.name}" />
+					<xf:delete href="{{ link('minesync/groups/delete', $group) }}" />
+				</xf:datarow>
+			</xf:foreach>
+		</xf:datalist>
+	</div>
+	<div class="block-footer">
+		<span class="block-footer-counter">{{ display_totals(count($groups)) }}</span>
+	</div>
+</div>]]></template>
+  <template type="public" title="ncms_linkminecraft" version_id="3000070" version_string="3.0.0"><![CDATA[<xf:title>{{ phrase("ncms_linkminecraft") }}</xf:title>
+
+<xf:h1>{{ phrase("ncms_linkminecraft") }}</xf:h1>
+
+{{ phrase("ncms_thanks_for_linking_minecraft_account") }}]]></template>
+  <template type="admin" title="ncms_nav" version_id="3000070" version_string="3.0.0"><![CDATA[<xf:title>{{ phrase('ncms_minesync') }}</xf:title>
+
+<xf:macro template="section_nav_macros" name="section_nav" arg-section="ncms" />]]></template>
+  <template type="admin" title="ncms_option_template_apikey" version_id="3000070" version_string="3.0.0"><![CDATA[<xf:formrow
+	label="{$option.title}"
+	hint="{$hintHtml}"
+	explain="{$explainHtml}"
+	html="{$listedHtml}">
+	
+	<span style="margin-right: 10px;">{$option.option_value}</span>
+	
+	<xf:button href="{{ link('minesync/regen-api-key') }}" icon="refresh" overlay="true">{{ phrase('ncms_regen') }}</xf:button>
+	<input type="hidden" name="options[ncmsApiKey]" value="{$option.option_value}" />
+</xf:formrow>]]></template>
+  <template type="public" title="ncms_player_macros" version_id="3010070" version_string="3.1.0"><![CDATA[<xf:macro name="mc_showcase"
+	arg-location="!"
+	arg-user="!">
+	
+	<xf:css src="ncms_global.less" />
+	<xf:if is="{$user.ncms_uuid} AND {$xf.options.ncmsEnablePlayerShowcase}">
+		<div class="mcShowcaseBlock {{ ($location == 'message') ? 'mcPlayerMessage' : 'mcPlayerProfile'}}">
+    	<div class="playerAvatar">{{ ncms_minecraft_avatar($user, '64')|preescaped }}</div>
+    	<div class="playerData {{ ({$user.ncms_group}) ? 'withGroup' : '' }}">
+        	<div class="playerUsername">{$user.ncms_username}</div>
+        	<xf:if is="{{ $user.ncms_group }}">
+        		<div class="playerRank">
+            		<span class="ncms-group-badge ncms-group-badge-{$user.ncms_group}" style="background-color: {{ $xf.simpleCache.getSet('nanocode/MineSync').groups.{$user.ncms_group}.css_background_colour }} !important; color: {{ $xf.simpleCache.getSet('nanocode/MineSync').groups.{$user.ncms_group}.css_font_colour }} !important;">{{ $xf.simpleCache.getSet('nanocode/MineSync').groups.{$user.ncms_group}.name }}</span>
+        		</div>
+			</xf:if>
+    		</div>
+			<div style="clear: both;"></div>
+		</div>
+	</xf:if>
+</xf:macro>]]></template>
+  <template type="admin" title="ncms_regen_api_key" version_id="3000070" version_string="3.0.0"><![CDATA[<xf:title>{{ phrase('confirm_action') }}</xf:title>
+
+<xf:form action="{{ link('minesync/regen-api-key') }}" class="block" ajax="true">
+
+	<div class="block-container">
+		<div class="block-body">
+			<xf:inforow rowtype="confirm">
+				{{ phrase('ncms_please_confirm_you_wish_to_regen_api_key') }}
+			</xf:inforow>
+		</div>
+
+		<xf:submitrow icon="refresh" submit="{{ phrase('ncms_regen') }}" rowtype="simple" />
+	</div>
+</xf:form>]]></template>
+  <template type="public" title="ncms_register_macros" version_id="3000070" version_string="3.0.0"><![CDATA[<xf:macro name="register_mc_showcase"
+	arg-uuid="!"
+	arg-username="!"
+	arg-token="!">
+	<xf:css src="ncms_global.less" />
+	<div class="ncmsRegisterBlock">
+		<div class="regmsg">
+			<img src="https://minotar.net/avatar/{$username}/64" height="32" width="32" />
+			{{ phrase('ncms_you_are_linking_the_following_minecraft_account', {'username': $username}) }}
+			<input type="hidden" name="ncms_token" value="{$token}" />
+		</div>
+	</div>
+</xf:macro>]]></template>
+  <template type="public" title="ncms_widget_server_status" version_id="3020070" version_string="3.2.0"><![CDATA[<xf:css src="ncms_global.less"/>
+<xf:js>
+    new Clipboard(".NcmsCopyable", {
+        text: function(trigger) {
+            return trigger.dataset.address;
+        }
+    });
+</xf:js>
+
+<div class="block ncms-mc-status" {{ widget_data($widget) }}>
+    <div class="block-container">
+        <h3 class="block-minorHeader">
+            {$title}
+            <span class="status-indicator {{$server.online ? " online" : "offline"}}" style="">■</span>
+        </h3>
+        <div class="block-body block-row">
+            <div class="ncms-server-status">
+                <a href="javascript:void(0);" class="NcmsCopyable" title="Click to copy IP" data-address="{$server.displayAddress}">{$server.displayAddress}</a><br>
+                <xf:if is="$server.online"><span>{$server.players.online}/{$server.players.max}</span></xf:if>
+            </div>
+        </div>
+    </div>
+</div>]]></template>
+  <template type="admin" title="widget_def_options_ncms_server_status" version_id="3020070" version_string="3.2.0"><![CDATA[<hr class="formRowSep" />
+
+<xf:textboxrow name="options[name]" value="{$options.name}"
+	label="{{ phrase('ncms_server_name') }}"
+	explain="{{ phrase('ncms_server_name_explain') }}" />
+
+<xf:textboxrow name="options[address]" value="{$options.address}"
+	label="{{ phrase('ncms_server_address') }}"
+	explain="{{ phrase('ncms_server_address_explain') }}" />
+
+<xf:numberboxrow name="options[port]" value="{$options.port}" min="1" max="65535"
+	label="{{ phrase('ncms_server_port') }}"
+	explain="{{ phrase('ncms_server_port_explain') }}" />]]></template>
+</templates>

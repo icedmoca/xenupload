@@ -1,0 +1,23 @@
+<?php
+return array (
+  'cron_entry.cleanUpDaily' => 'Daily clean up',
+  'cron_entry.cleanUpHourly' => 'Hourly clean up',
+  'cron_entry.dailyStats' => 'Record daily statistics',
+  'cron_entry.deleteExpiredBans' => 'Delete expired bans',
+  'cron_entry.downgradeExpired' => 'Downgrade expired user upgrades',
+  'cron_entry.emailBounce' => 'Process email bounces',
+  'cron_entry.expireTempUserChanges' => 'Expire temporary user changes',
+  'cron_entry.feeder' => 'Feeder',
+  'cron_entry.fileCheck' => 'Perform file health check',
+  'cron_entry.forumStatistics' => 'Rebuild forum statistics',
+  'cron_entry.memberStatsCache' => 'Rebuild member stats cache',
+  'cron_entry.ncmsProcessPlayerUpdates' => 'MineSync: Process player updates',
+  'cron_entry.ncmsServerStatusRefresh' => 'MineSync: Server status refresh',
+  'cron_entry.run_successfully' => 'Cron entry was run successfully.',
+  'cron_entry.sitemap' => 'Rebuild sitemap',
+  'cron_entry.th_updateCheck_uix' => '[TH] UI.X: Check for updates',
+  'cron_entry.trophy' => 'Update user trophies',
+  'cron_entry.userGroupPromotions' => 'User group promotions',
+  'cron_entry.views' => 'Update view counters',
+  'cron_entry.warningExpiry' => 'Handle expired warnings',
+);

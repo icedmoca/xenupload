@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template_modifications>
+  <modification type="public" template="PAGE_CONTAINER" modification_key="ncms_footer_append" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[{{ phrase('extra_copyright') }}]]></find>
+    <replace><![CDATA[<br>
+<a href="https://nanocode.io" class="u-concealed" dir="ltr">Minecraft-XenForo sync (MineSync) by nanocode <span class="copyright">&copy; 2018</span></a>
+$0]]></replace>
+  </modification>
+  <modification type="public" template="account_visitor_menu" modification_key="ncms_account_visitor_append" description="Append links to account visitor menu" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<!--[XF:account_links:bottom]-->]]></find>
+    <replace><![CDATA[$0
+<li><a href="{{ link('account/minesync') }}" class="menu-linkRow">{{ phrase('ncms_minesync_settings') }}</a></li>]]></replace>
+  </modification>
+  <modification type="public" template="account_wrapper" modification_key="ncms_account_wrapper_nav_append" description="Account wrapper nav append" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<!--[XF:settings_links:bottom]-->]]></find>
+    <replace><![CDATA[<a class="blockLink {{ $pageSelected == 'minesync' ? 'is-selected' : '' }}" href="{{ link('account/minesync') }}">
+	{{ phrase('ncms_minesync_settings') }}
+</a>
+
+$0]]></replace>
+  </modification>
+  <modification type="public" template="member_view" modification_key="ncms_member_view_minesync_block" description="Add MineSync data block on member_view" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:userblurb user="$user" tag="div" class="memberHeader-blurb" />]]></find>
+    <replace><![CDATA[$0
+
+<xf:macro template="ncms_player_macros" name="mc_showcase"
+	arg-location="profile"
+	arg-user="{$user}" />]]></replace>
+  </modification>
+  <modification type="public" template="message_macros" modification_key="ncms_message_macros_minesync_block" description="Add MineSync data block on message_macros" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:if is="{$dateHtml}">]]></find>
+    <replace><![CDATA[<xf:macro template="ncms_player_macros" name="mc_showcase"
+	arg-location="message"
+	arg-user="{$user}" />
+
+$0]]></replace>
+  </modification>
+  <modification type="public" template="message_macros" modification_key="ncms_add_class_to_message_avatar" description="Add an identifier class to Minecraft avatars in messages" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[message-avatar-wrapper]]></find>
+    <replace><![CDATA[$0 {{ ($user && $user->hasMinecraftAvatar()) ? 'MineSyncAvatar' : '' }}]]></replace>
+  </modification>
+  <modification type="public" template="register_form" modification_key="ncms_register_form_block" description="Add user showcase block to register_form" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:macro template="register_macros" name="username_row"]]></find>
+    <replace><![CDATA[<xf:if is="{$mcProfile}">
+	<xf:macro template="ncms_register_macros" name="register_mc_showcase"
+		arg-uuid="{$mcProfile.uuid}"
+		arg-username="{$mcProfile.username}"
+		arg-token="{$mcProfile.token}" />
+</xf:if>
+
+$0]]></replace>
+  </modification>
+  <modification type="admin" template="user_edit" modification_key="ncms_user_edit_minesync" description="Add MineSync data to user_edit" execution_order="10" enabled="1" action="str_replace">
+    <find><![CDATA[<xf:submitrow icon="save" sticky="true" />]]></find>
+    <replace><![CDATA[<xf:macro template="ncms_admin_macros" name="edit_user"
+		  arg-user="{$user}"
+		  arg-groups="{$ncmsGroups}" />
+
+$0]]></replace>
+  </modification>
+</template_modifications>

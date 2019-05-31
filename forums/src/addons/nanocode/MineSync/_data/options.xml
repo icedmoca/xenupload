@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<options>
+  <option option_id="ncmsAllowDisplayGroupChanging" edit_format="onoff" data_type="boolean">
+    <default_value>1</default_value>
+    <relation group_id="ncms" display_order="410"/>
+  </option>
+  <option option_id="ncmsAllowUnlinking" edit_format="onoff" data_type="boolean">
+    <default_value>1</default_value>
+    <relation group_id="ncms" display_order="205"/>
+  </option>
+  <option option_id="ncmsApiAccessIps" edit_format="textbox" data_type="string">
+    <default_value/>
+    <relation group_id="ncms" display_order="105"/>
+  </option>
+  <option option_id="ncmsApiKey" edit_format="template" data_type="string">
+    <default_value/>
+    <edit_format_params>ncms_option_template_apikey</edit_format_params>
+    <relation group_id="ncms" display_order="100"/>
+  </option>
+  <option option_id="ncmsAvatarSource" edit_format="textbox" data_type="string">
+    <default_value>https://crafatar.com/avatars/{uuid}?size={size}</default_value>
+    <relation group_id="ncms" display_order="320"/>
+  </option>
+  <option option_id="ncmsDisableServerStatusCache" edit_format="onoff" data_type="boolean">
+    <default_value>0</default_value>
+    <relation group_id="ncms" display_order="500"/>
+  </option>
+  <option option_id="ncmsEnableAvatarSync" edit_format="onoff" data_type="boolean">
+    <default_value>1</default_value>
+    <relation group_id="ncms" display_order="310"/>
+  </option>
+  <option option_id="ncmsEnableLinking" edit_format="onoff" data_type="boolean">
+    <default_value>1</default_value>
+    <relation group_id="ncms" display_order="200"/>
+  </option>
+  <option option_id="ncmsEnablePlayerShowcase" edit_format="onoff" data_type="boolean">
+    <default_value>1</default_value>
+    <relation group_id="ncms" display_order="300"/>
+  </option>
+  <option option_id="ncmsForceAvatarSync" edit_format="onoff" data_type="boolean">
+    <default_value>0</default_value>
+    <relation group_id="ncms" display_order="315"/>
+  </option>
+  <option option_id="ncmsKeyInvalidationTime" edit_format="spinbox" data_type="unsigned_integer">
+    <default_value>360</default_value>
+    <relation group_id="ncms" display_order="220"/>
+  </option>
+  <option option_id="ncmsNewLinkInvalidationTime" edit_format="spinbox" data_type="unsigned_integer">
+    <default_value>4294967200</default_value>
+    <relation group_id="ncms" display_order="230"/>
+  </option>
+  <option option_id="ncmsRegisterOnlyThroughServer" edit_format="onoff" data_type="boolean">
+    <default_value>0</default_value>
+    <relation group_id="ncms" display_order="210"/>
+  </option>
+</options>

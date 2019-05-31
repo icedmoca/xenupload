@@ -1,0 +1,16 @@
+{
+  "legacy_addon_id": "aMineSync2",
+  "title": "[n] MineSync",
+  "description": "MineSync integrates your Minecraft server with your XenForo forum, syncs ranks and links players!",
+  "version_id": 3020170,
+  "version_string": "3.2.1",
+  "dev": "nanocode",
+  "dev_url": "https://nanocode.io",
+  "faq_url": "",
+  "support_url": "https://apantic.zendesk.com/hc/en-us/requests/new",
+  "extra_urls": {
+    "Documentation": "https://apantic.zendesk.com/hc/en-us/categories/115000260289-nanocode-MineSync"
+  },
+  "require": [],
+  "icon": "logo.jpg"
+}

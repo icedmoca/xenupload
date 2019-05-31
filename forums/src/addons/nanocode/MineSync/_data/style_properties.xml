@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<style_properties>
+  <style_property property_name="ncmsShowcaseBlock" group_name="ncmsStyling" title="Showcase block" description="Styling for showcase block" property_type="css" display_order="10" css_components="background,padding,extra">
+    <value>{
+    "background-color": "@xf-pageBg",
+    "padding-top": "4",
+    "padding-right": "2",
+    "padding-bottom": "4",
+    "padding-left": "2",
+    "extra": "height: 30px;"
+}</value>
+  </style_property>
+</style_properties>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<phrases>
+  <phrase title="admin_navigation.ncms" version_id="3000070" version_string="3.0.0"><![CDATA[MineSync]]></phrase>
+  <phrase title="admin_navigation.ncmsGroups" version_id="3000070" version_string="3.0.0"><![CDATA[Groups]]></phrase>
+  <phrase title="admin_permission.minesync" version_id="3000070" version_string="3.0.0"><![CDATA[Manage MineSync]]></phrase>
+  <phrase title="cron_entry.ncmsProcessPlayerUpdates" version_id="3020070" version_string="3.2.0"><![CDATA[MineSync: Process player updates]]></phrase>
+  <phrase title="cron_entry.ncmsServerStatusRefresh" version_id="3020070" version_string="3.2.0"><![CDATA[MineSync: Server status refresh]]></phrase>
+  <phrase title="ncms_account_is_not_currently_linked" version_id="3000070" version_string="3.0.0"><![CDATA[<p>Your Minecraft account is not currently linked to the forums!</p>
+<p>Type /link in-game to begin the linking process.</p>]]></phrase>
+  <phrase title="ncms_add_group" version_id="3000070" version_string="3.0.0"><![CDATA[Add group]]></phrase>
+  <phrase title="ncms_already_linked" version_id="3000070" version_string="3.0.0"><![CDATA[You are already linked with a Minecraft account! You will need to unlink your account before you can link a new one.]]></phrase>
+  <phrase title="ncms_already_registered_use_link_instead" version_id="3000070" version_string="3.0.0"><![CDATA[You are already registered on the forums! Use the /link command instead.]]></phrase>
+  <phrase title="ncms_are_you_sure_you_wish_to_unlink_account" version_id="3000070" version_string="3.0.0"><![CDATA[Are you sure you wish to unlink your XenForo and Minecraft accounts?]]></phrase>
+  <phrase title="ncms_available_groups" version_id="3000070" version_string="3.0.0"><![CDATA[Available groups]]></phrase>
+  <phrase title="ncms_confirm_that_you_want_to_remove_following_group" version_id="3000170" version_string="3.0.1"><![CDATA[Please confirm that you want to remove the following group:]]></phrase>
+  <phrase title="ncms_confirm_unlink" version_id="3000270" version_string="3.0.2"><![CDATA[Confirm unlink]]></phrase>
+  <phrase title="ncms_css_background_colour" version_id="3000070" version_string="3.0.0"><![CDATA[Tag background colour]]></phrase>
+  <phrase title="ncms_css_font_colour" version_id="3000070" version_string="3.0.0"><![CDATA[Tag font colour]]></phrase>
+  <phrase title="ncms_current_display_group" version_id="3000070" version_string="3.0.0"><![CDATA[Current display group]]></phrase>
+  <phrase title="ncms_display_group" version_id="3000070" version_string="3.0.0"><![CDATA[Display group]]></phrase>
+  <phrase title="ncms_edit_group" version_id="3000070" version_string="3.0.0"><![CDATA[Edit group]]></phrase>
+  <phrase title="ncms_error_you_can_only_register_through_minecraft" version_id="3000070" version_string="3.0.0"><![CDATA[You can only register through Minecraft! Please do /register in-game to create an account.]]></phrase>
+  <phrase title="ncms_group_name" version_id="3000070" version_string="3.0.0"><![CDATA[Group name]]></phrase>
+  <phrase title="ncms_group_priority" version_id="3000070" version_string="3.0.0"><![CDATA[Priority]]></phrase>
+  <phrase title="ncms_groups" version_id="3000070" version_string="3.0.0"><![CDATA[Groups]]></phrase>
+  <phrase title="ncms_invalid_key" version_id="3000070" version_string="3.0.0"><![CDATA[Sorry! That key is invalid. Please try running /link again.]]></phrase>
+  <phrase title="ncms_linking_disabled" version_id="3000670" version_string="3.0.6"><![CDATA[The administrator has disabled linking with Minecraft.]]></phrase>
+  <phrase title="ncms_linkminecraft" version_id="3000070" version_string="3.0.0"><![CDATA[Link Minecraft]]></phrase>
+  <phrase title="ncms_mc_group_id" version_id="3000070" version_string="3.0.0"><![CDATA[Minecraft group name]]></phrase>
+  <phrase title="ncms_mc_group_id_explain" version_id="3000070" version_string="3.0.0"><![CDATA[This should be the identifier for the group on your server. It should be, case-sensitive, the rank as shown in-game in your permissions plugin. For example, for "owner" in-game you would enter in owner.]]></phrase>
+  <phrase title="ncms_minesync" version_id="3000070" version_string="3.0.0"><![CDATA[MineSync]]></phrase>
+  <phrase title="ncms_minesync_settings" version_id="3000070" version_string="3.0.0"><![CDATA[MineSync settings]]></phrase>
+  <phrase title="ncms_ordering_and_ranking_priority" version_id="3000070" version_string="3.0.0"><![CDATA[The higher the value, the greater the priority.<br/><br/>
+
+The highest available priority group will be automatically set to the display group on sync, when a group has not been manually selected for displayed.]]></phrase>
+  <phrase title="ncms_please_confirm_you_wish_to_regen_api_key" version_id="3000070" version_string="3.0.0"><![CDATA[Please confirm you wish to regenerate your API key.<br><br>
+Note that this action will mean all servers using the current API key will not work until you set the new API key into the config.]]></phrase>
+  <phrase title="ncms_regen" version_id="3000070" version_string="3.0.0"><![CDATA[Regen]]></phrase>
+  <phrase title="ncms_server_address" version_id="3020070" version_string="3.2.0"><![CDATA[Server address]]></phrase>
+  <phrase title="ncms_server_address_explain" version_id="3020070" version_string="3.2.0"><![CDATA[Your server's numeric or alias address (e.g. 127.0.0.1, or play.nanocode.io). Do not include the port. This address will be shown to players, and also used for status checks.]]></phrase>
+  <phrase title="ncms_server_name" version_id="3020070" version_string="3.2.0"><![CDATA[Server name]]></phrase>
+  <phrase title="ncms_server_name_explain" version_id="3020070" version_string="3.2.0"><![CDATA[The name of your server that you wish to display on the widget.]]></phrase>
+  <phrase title="ncms_server_port" version_id="3020070" version_string="3.2.0"><![CDATA[Server port]]></phrase>
+  <phrase title="ncms_server_port_explain" version_id="3020070" version_string="3.2.0"><![CDATA[Your server's port. This is used for pinging your server. If this is non-default it will be displayed along with the server address. If it is 25565, it will not be displayed.]]></phrase>
+  <phrase title="ncms_set_new_display_group" version_id="3000070" version_string="3.0.0"><![CDATA[Select a new display group]]></phrase>
+  <phrase title="ncms_thanks_for_linking_minecraft_account" version_id="3000070" version_string="3.0.0"><![CDATA[Thanks for linking your Minecraft account! Your ranks will be synced over shortly.]]></phrase>
+  <phrase title="ncms_unlink" version_id="3000070" version_string="3.0.0"><![CDATA[Unlink]]></phrase>
+  <phrase title="ncms_unlink_account" version_id="3000070" version_string="3.0.0"><![CDATA[Unlink account]]></phrase>
+  <phrase title="ncms_username" version_id="3000070" version_string="3.0.0"><![CDATA[Username]]></phrase>
+  <phrase title="ncms_uuid" version_id="3000070" version_string="3.0.0"><![CDATA[UUID]]></phrase>
+  <phrase title="ncms_xf_group_explain" version_id="3000070" version_string="3.0.0"><![CDATA[This is the XF group that will be automatically added for users that are in this group on the server.]]></phrase>
+  <phrase title="ncms_xf_group_id" version_id="3000070" version_string="3.0.0"><![CDATA[XF group ID]]></phrase>
+  <phrase title="ncms_you_are_linking_the_following_minecraft_account" version_id="3000070" version_string="3.0.0"><![CDATA[Hey {username}!]]></phrase>
+  <phrase title="option.ncmsAllowDisplayGroupChanging" version_id="3000070" version_string="3.0.0"><![CDATA[Allow display group changing]]></phrase>
+  <phrase title="option.ncmsAllowUnlinking" version_id="3000070" version_string="3.0.0"><![CDATA[Allow users to unlink their accounts]]></phrase>
+  <phrase title="option.ncmsApiAccessIps" version_id="3000070" version_string="3.0.0"><![CDATA[API access IPs]]></phrase>
+  <phrase title="option.ncmsApiKey" version_id="3000070" version_string="3.0.0"><![CDATA[API key]]></phrase>
+  <phrase title="option.ncmsAvatarSource" version_id="3000070" version_string="3.0.0"><![CDATA[Avatar source]]></phrase>
+  <phrase title="option.ncmsDisableServerStatusCache" version_id="3020070" version_string="3.2.0"><![CDATA[Disable server status cache]]></phrase>
+  <phrase title="option.ncmsEnableAvatarSync" version_id="3000070" version_string="3.0.0"><![CDATA[Enable avatar sync]]></phrase>
+  <phrase title="option.ncmsEnableLinking" version_id="3000070" version_string="3.0.0"><![CDATA[Enable linking]]></phrase>
+  <phrase title="option.ncmsEnablePlayerShowcase" version_id="3000070" version_string="3.0.0"><![CDATA[Enable player showcase]]></phrase>
+  <phrase title="option.ncmsForceAvatarSync" version_id="3000070" version_string="3.0.0"><![CDATA[Force avatar sync]]></phrase>
+  <phrase title="option.ncmsKeyInvalidationTime" version_id="3000070" version_string="3.0.0"><![CDATA[Key invalidation time]]></phrase>
+  <phrase title="option.ncmsNewLinkInvalidationTime" version_id="3000070" version_string="3.0.0"><![CDATA[New link invalidation time]]></phrase>
+  <phrase title="option.ncmsRegisterOnlyThroughServer" version_id="3000070" version_string="3.0.0"><![CDATA[Only allow MineSync registrations]]></phrase>
+  <phrase title="option_explain.ncmsAllowDisplayGroupChanging" version_id="3000070" version_string="3.0.0"><![CDATA[Allow users to manually change their display group. If set to false, the highest priority group will always be forced upon the user.]]></phrase>
+  <phrase title="option_explain.ncmsAllowUnlinking" version_id="3000070" version_string="3.0.0"><![CDATA[Should users be allowed to unlink their account after linking it?]]></phrase>
+  <phrase title="option_explain.ncmsApiAccessIps" version_id="3000070" version_string="3.0.0"><![CDATA[List of IPs that can use the MineSync API, separated by commas (","). Leave empty for all IPs.]]></phrase>
+  <phrase title="option_explain.ncmsApiKey" version_id="3000070" version_string="3.0.0"><![CDATA[This key will authenticate a client with the API. Generate a new key here, and ensure the same key is set on the server.]]></phrase>
+  <phrase title="option_explain.ncmsAvatarSource" version_id="3000070" version_string="3.0.0"><![CDATA[]]></phrase>
+  <phrase title="option_explain.ncmsDisableServerStatusCache" version_id="3020070" version_string="3.2.0"><![CDATA[This disables caching for the server status widgets. By default, they are updated every minute. If you disable caching, they will be updated on every page load where a server status widget is displayed.]]></phrase>
+  <phrase title="option_explain.ncmsEnableAvatarSync" version_id="3000070" version_string="3.0.0"><![CDATA[Automatically set user avatars to their Minecraft skin head if no custom avatar is set.]]></phrase>
+  <phrase title="option_explain.ncmsEnableLinking" version_id="3000070" version_string="3.0.0"><![CDATA[Are users allowed to link their account with the forums? If set to off, trying to link will show an error.]]></phrase>
+  <phrase title="option_explain.ncmsEnablePlayerShowcase" version_id="3000070" version_string="3.0.0"><![CDATA[Enable the player showcase block on messages and profiles]]></phrase>
+  <phrase title="option_explain.ncmsForceAvatarSync" version_id="3000070" version_string="3.0.0"><![CDATA[Force avatars for players with a linked Minecraft account to have their Minecraft avatars displayed. Requires the above option to be ticked.]]></phrase>
+  <phrase title="option_explain.ncmsKeyInvalidationTime" version_id="3000070" version_string="3.0.0"><![CDATA[Time in minutes that old keys will be invalidated. By default this is 6 hours (60 * 6 minutes)]]></phrase>
+  <phrase title="option_explain.ncmsNewLinkInvalidationTime" version_id="3000070" version_string="3.0.0"><![CDATA[Time in minutes for new links to become invalidated. New links are created to notify the server that a new user has linked their account with the website. These can be removed after a period of time. To disable, effectively set this to a very large number. Default is the maximum length possible (8171 years).]]></phrase>
+  <phrase title="option_explain.ncmsRegisterOnlyThroughServer" version_id="3000070" version_string="3.0.0"><![CDATA[Tick this to only allow players to register via the server with a link token.]]></phrase>
+  <phrase title="option_group.ncms" version_id="3000070" version_string="3.0.0"><![CDATA[[n] MineSync]]></phrase>
+  <phrase title="option_group_description.ncms" version_id="3000070" version_string="3.0.0"><![CDATA[Options for nanocode's MineSync add-on.]]></phrase>
+  <phrase title="permission.ncms_canEditDisplayGroup" version_id="3000070" version_string="3.0.0"><![CDATA[[MineSync] Edit display group]]></phrase>
+  <phrase title="permission.ncms_canLinkAccount" version_id="3000070" version_string="3.0.0"><![CDATA[[MineSync] Can link account]]></phrase>
+  <phrase title="style_prop.ncmsShowcaseBlock" version_id="3000070" version_string="3.0.0"><![CDATA[Showcase block]]></phrase>
+  <phrase title="style_prop_desc.ncmsShowcaseBlock" version_id="3000070" version_string="3.0.0"><![CDATA[Styling for showcase block]]></phrase>
+  <phrase title="widget_def.ncms_server_status" version_id="3020070" version_string="3.2.0"><![CDATA[MineSync: Server status]]></phrase>
+  <phrase title="widget_def_desc.ncms_server_status" version_id="3020070" version_string="3.2.0"><![CDATA[Display a server status widget, showing the IP, player count, and online/offline status]]></phrase>
+</phrases>

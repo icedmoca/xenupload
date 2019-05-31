@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<routes>
+  <route route_type="admin" route_prefix="minesync" controller="nanocode\MineSync:Minesync"/>
+  <route route_type="admin" route_prefix="minesync" sub_name="groups" format="groups/:int&lt;id,name&gt;/" controller="nanocode\MineSync:Group" context="ncmsGroups"/>
+  <route route_type="public" route_prefix="link-minecraft" format=":str&lt;token&gt;/" controller="nanocode\MineSync:LinkMinecraft" context="link-minecraft"/>
+  <route route_type="public" route_prefix="msapi" controller="nanocode\MineSync:MSApi" context="msapi"/>
+</routes>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+  <permission permission_group_id="ncms" permission_id="canEditDisplayGroup" permission_type="flag" interface_group_id="generalPermissions" display_order="495"/>
+  <permission permission_group_id="ncms" permission_id="canLinkAccount" permission_type="flag" interface_group_id="generalPermissions" display_order="492"/>
+</permissions>
